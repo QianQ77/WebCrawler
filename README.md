@@ -2,11 +2,17 @@
 A web-crawler in Java
 
 Using Jsoup to parse the URLs and use Jsoup selector to find all 'a' tags with "href" attribute;
+
 Crawl with multiple threads;
+
 Saving visited URLs into Neo4j, a graph database, so we can create a complte graph of a website;
+
 Using Spring Data to interacti with Neo4j;
+
 Using Spring Boot to wireup;
+
 Using Mockito library and PowerMock library for unit test;
+
 Using Java8 Predicates;
 
 
