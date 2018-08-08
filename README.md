@@ -1,19 +1,18 @@
 # WebCrawler
-A web-crawler in Java
 
-Using Jsoup to parse the URLs and use Jsoup selector to find all 'a' tags with "href" attribute;
+<ul> Use Jsoup to parse the URLs and use Jsoup selector to find all 'a' tags with "href" attribute;
 
 Crawl with multiple threads;
 
-Saving visited URLs into Neo4j, a graph database, so we can create a complte graph of a website;
+Save visited URLs into Neo4j, a graph database, so we can create a complte graph of a website;
 
-Using Spring Data to interacti with Neo4j;
+Use Spring Data to interacti with Neo4j;
 
-Using Spring Boot to wireup;
+Use Spring Boot to wireup;
 
-Using Mockito library and PowerMock library for unit test;
+Use Mockito library and PowerMock library for unit test;
 
-Using Java8 Predicates;
+Use Java8 Predicates;
 
 
 A Few Factors When Building a Web Crawler
