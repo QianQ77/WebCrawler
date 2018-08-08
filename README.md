@@ -1,6 +1,6 @@
 # WebCrawler
 
-<ul> Use Jsoup to parse the URLs and use Jsoup selector to find all 'a' tags with "href" attribute;
+<li> Use Jsoup to parse the URLs and use Jsoup selector to find all 'a' tags with "href" attribute;
 
 Crawl with multiple threads;
 
