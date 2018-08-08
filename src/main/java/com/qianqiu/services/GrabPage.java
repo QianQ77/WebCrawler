@@ -27,37 +27,56 @@ import org.jsoup.select.Elements;
 public class GrabPage implements Callable<GrabPage> {
     static final int TIMEOUT = 60000;
     private URL url;
-    private Set<URL> urllist = new HashSet<URL>();
+    private int depth;
+    private Set<URL> urlSet = new HashSet<URL>();
+
+    public GrabPage(URL url, int depth) {
+        this.url = url;
+        this.depth = depth;
+    }
 
     public GrabPage(URL url) {
         this.url = url;
+        this.depth = 0;
     }
 
     public GrabPage call() throws Exception {
         Document document = null;
+        System.out.println("Visiting (" + depth + "): " + url.toString());
         document = Jsoup.parse(url, TIMEOUT);
 
         // Jsoup selector finds all the "a" tags with a "href" attribute
-        Elements links = document.select("a[href]");
+        processLinks(document.select("a[href]"));
 
-        for (Element link : links) {
-            String href = link.attr("href");
-            if (StringUtil.isBlank(href) || href.startsWith("#")) {
-                continue;
-            }
 
-            try {
-                URL nextUrl = new URL(url, href);
-                urllist.add(nextUrl);
-            } catch (MalformedURLException e) {
-                System.out.println("MalformedURL: " + href);
-            }
-        }
         return this;
     }
 
+    private void processLinks(Elements links) {
+        links.stream().filter(link -> {
+            String href = link.attr("href");
+            return (!StringUtil.isBlank(href) && !href.startsWith("#"));
+        }).forEach(link -> {
+                    try {
+                        URL nextUrl = new URL(url, link.attr("href"));
+                        urlSet.add(nextUrl);
+                    } catch (MalformedURLException e) {
+                        System.out.println("MalformedURL: " + link.attr("href"));
+                    }
+                }
+        );
+    }
+
+    public Set<URL> getUrlSet() {
+        return urlSet;
+    }
+
+    public int getDepth() {
+        return depth;
+    }
+
     public void printAllLinks() {
-        for (URL url : urllist) {
+        for (URL url : urlSet) {
             System.out.println("Links to " + url.toString());
         }
     }
