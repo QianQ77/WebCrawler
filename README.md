@@ -2,17 +2,17 @@
 
 <li> Use Jsoup to parse the URLs and use Jsoup selector to find all 'a' tags with "href" attribute;
 
-Crawl with multiple threads;
+<li> Crawl with multiple threads;
 
-Save visited URLs into Neo4j, a graph database, so we can create a complte graph of a website;
+<li> Save visited URLs into Neo4j, a graph database, so we can create a complte graph of a website;
 
-Use Spring Data to interacti with Neo4j;
+<li> Use Spring Data to interacti with Neo4j;
 
-Use Spring Boot to wireup;
+<li> Use Spring Boot to wireup;
 
-Use Mockito library and PowerMock library for unit test;
+<li> Use Mockito library and PowerMock library for unit test;
 
-Use Java8 Predicates;
+<li> Use Java8 Predicates;
 
 
 A Few Factors When Building a Web Crawler
