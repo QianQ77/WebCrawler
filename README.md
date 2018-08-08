@@ -6,7 +6,7 @@
 
 <li> Save visited URLs into Neo4j, a graph database, so we can create a complte graph of a website;
 
-<li> Use Spring Data to interacti with Neo4j;
+<li> Use Spring Data to interact with Neo4j;
 
 <li> Use Spring Boot to wireup;
 
